@@ -113,14 +113,14 @@ class RMQService
      * @param $body
      * @param string $exchange
      */
-    public function call($body, $exchange = '')
+    public function call($body, $exchange = '', $queue)
     {
         $msg = new AMQPMessage(
             $body
         );
 
         try {
-            $this->channel->basic_publish($msg, $exchange);
+            $this->channel->basic_publish($msg, $exchange, $queue);
         } catch (Exception $e) {
             Log::error($e->getMessage());
         }
