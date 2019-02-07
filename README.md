@@ -8,6 +8,7 @@ Il fournit des fonctionnalitées avec RabbitMQ :
 - Communication RPC
 - Mise en place de "listen" (consommateur de queue)
 
+Fonctionnement RabbitMQ : [ici](explication.md)
 
 ## Prérequis
 
