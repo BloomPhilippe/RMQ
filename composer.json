@@ -1,6 +1,7 @@
 {
     "name": "BloomPhilippe/RMQ",
-    "description": "Lumen service for integrate RMQ",
+    "description": "Lumen service for integrate RabbitMQ",
+    "keywords": ["RabbitMQ", "laravel", "lumen", "PHP", "Asynchrone"],
     "license": "MIT",
     "require": {
         "php": ">=7.0",
