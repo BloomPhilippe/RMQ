@@ -1,5 +1,5 @@
 {
-    "name": "BloomPhilippe/RMQ",
+    "name": "bloomphilippe/rmq",
     "description": "Lumen service for integrate RabbitMQ",
     "keywords": ["RabbitMQ", "laravel", "lumen", "PHP", "Asynchrone"],
     "license": "MIT",
