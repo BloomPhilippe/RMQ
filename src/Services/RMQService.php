@@ -7,9 +7,11 @@ use PhpAmqpLib\Message\AMQPMessage;
 use PhpAmqpLib\Wire\AMQPTable;
 use Log;
 
+define('SOCKET_EAGAIN', '');
 
 class RMQService
 {
+
     protected $connection;
     protected $channel;
     protected $queue;
@@ -19,7 +21,7 @@ class RMQService
 
     public function __construct()
     {
-        $this->connection = new AMQPStreamConnection(env('RABBITMQ_HOST', 'localhost'), env('RABBITMQ_PORT', '5672'), env('RABBITMQ_LOGIN', 'admin'), env('RABBITMQ_PASSWORD', 'password'));
+        $this->connection = new AMQPStreamConnection(env('RABBITMQ_HOST', 'localhost'), env('RABBITMQ_PORT', '5672'), env('RABBITMQ_LOGIN', 'guest'), env('RABBITMQ_PASSWORD', 'guest'));
 
         $this->channel = $this->connection->channel();
     }
