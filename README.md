@@ -63,12 +63,12 @@ dans la fonction register
 
 
 ```
-use App\Services\RMQ;
+use App\Services\RMQService;
 ```
 
 ```
 $this->app->extend('rmqService', function() {
-    return new RMQService();
+            return new RMQService();
 });
 ```
 
@@ -80,22 +80,27 @@ Exemple :
 
 ```
 <?php
-
 namespace App\Services;
 
-use BloomPhilippe\RMQ\Services\RMQ as BaseRMQ;
+use BloomPhilippe\RMQ\Services\RMQService as BaseRMQService;
 
 
-class RMQ extends BaseRMQ
+class RMQService extends BaseRMQService
 {
-
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function listenCallback(AMQPMessage $response){
-        //process
+
+    public function listenCallback(AMQPMessage $response)
+    {
+        try {
+            echo $response->body;
+            $response->delivery_info['channel']->basic_ack($response->delivery_info['delivery_tag']);
+        } catch (Exception $e) {
+            $response->delivery_info['channel']->basic_nack($response->delivery_info['delivery_tag']);
+        }
     }
 
 }
