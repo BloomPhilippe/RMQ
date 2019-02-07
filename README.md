@@ -68,7 +68,7 @@ use App\Services\RMQ;
 
 ```
 $this->app->extend('rmqService', function() {
-    return new RMQ();
+    return new RMQService();
 });
 ```
 
