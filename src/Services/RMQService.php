@@ -135,7 +135,7 @@ class RMQService
     public function listen($queue)
     {
         $this->channel->basic_qos(null, 1, null);
-        $this->channel->basic_consume($queue, '', false, true, false, false, [$this, 'listenCallback']);
+        $this->channel->basic_consume($queue, '', false, false, false, false, [$this, 'listenCallback']);
         while(count($this->channel->callbacks)) {
             $this->channel->wait();
         }
