@@ -1,6 +1,6 @@
 # RMQ
 
-Ce service peut être installé sur Laravel ou Lumen.
+Ce service peut être installé sur Lumen.
 
 Il fournit des fonctionnalitées avec RabbitMQ :
 
