@@ -2,8 +2,9 @@
 namespace BloomPhilippe\RMQ;
 
 use Illuminate\Support\ServiceProvider as BaseProvider;
-use BloomPhilippe\RMQ\Console\RabbitMQListenCommand;
-use BloomPhilippe\RMQ\Services\RabbitMQManage;
+use BloomPhilippe\RMQ\Console\RMQListenCommand;
+use BloomPhilippe\RMQ\Console\RMQRpcServerCommand;
+use BloomPhilippe\RMQ\Services\RMQService;
 
 class ServiceProvider extends BaseProvider
 {
@@ -30,8 +31,13 @@ class ServiceProvider extends BaseProvider
             return new RMQListenCommand();
         });
 
+        $this->app->singleton('command.rmq.rpc', function () {
+            return new RMQRpcServerCommand();
+        });
+
         $this->commands(
-            'command.rmq.listen'
+            'command.rmq.listen',
+            'command.rmq.rpc'
         );
 
     }
