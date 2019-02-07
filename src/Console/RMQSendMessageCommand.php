@@ -36,6 +36,6 @@ class RMQSendMessageCommand extends Command
      */
     public function handle()
     {
-        app('rmqService')->call($this->argument('queue'), '', $this->argument('msg'));
+        app('rmqService')->call($this->argument('msg'), '', $this->argument('queue'));
     }
 }
