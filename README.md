@@ -58,7 +58,13 @@ Il fournit des fonctionnalitées avec RabbitMQ :
 $app->register(\BloomPhilippe\RMQ\ServiceProvider::class);
 ```
 
-2. Ajouter un extend pour étendre la Class RMQService du service dans /app/Providers/AppServiceProvider.php, 
+2. Activer le provider de baase de Lumen dans boostrap/app.php en décommentant la ligne ci-dessous
+
+```
+$app->register(App\Providers\AppServiceProvider::class);
+```
+
+3. Ajouter un extend pour étendre la Class RMQService du service dans /app/Providers/AppServiceProvider.php, 
 dans la fonction register 
 
 
@@ -72,7 +78,7 @@ $this->app->extend('rmqService', function() {
 });
 ```
 
-3. Ajouter votre Class que va étendre dans app/Services/RMQ
+4. Ajouter votre Class que va étendre dans app/Services/RMQ
 
 Dans cette Classe, il faut juste créer la fonction listenCallback()
 
