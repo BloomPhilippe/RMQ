@@ -1,4 +1,4 @@
-# RMQ gfdgdfgd
+# RMQ
 
 Ce service peut être installé sur Lumen.
 
