@@ -7,9 +7,8 @@ use PhpAmqpLib\Message\AMQPMessage;
 use PhpAmqpLib\Wire\AMQPTable;
 use Log;
 
-if(!define('SOCKET_EAGAIN')){
-    define('SOCKET_EAGAIN', '');
-}
+
+//define('SOCKET_EAGAIN', '');
 
 class RMQService
 {
